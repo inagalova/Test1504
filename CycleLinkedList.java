@@ -105,7 +105,9 @@ public class CycleLinkedList<T> implements ICycleLinkedList<T>{
 
     @Override
     public T get(int index) {
-        index = index % size;
+        if (!isEmpty()) {
+            index = index % size;
+        }
         if (index < 0) {
             index += size;
         }
@@ -120,5 +122,5 @@ public class CycleLinkedList<T> implements ICycleLinkedList<T>{
             index--;
         }
         return stack.getData();
+        }
     }
-}
